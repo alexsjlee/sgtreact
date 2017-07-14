@@ -1,12 +1,5 @@
 .app {
-    background-color: #000;
-    color: #fff;
-    padding: 50px;
-    text-align: center;
-}
-
-.app img {
-    height: 100px;
+    margin: 5vh auto;
 }
 
 .rotate {
@@ -20,4 +13,12 @@
     to {
         transform: rotate(360deg);
     }
+}
+
+.table td, .table th {
+    border-top: none;
+}
+
+h1 {
+    color: blue
 }
