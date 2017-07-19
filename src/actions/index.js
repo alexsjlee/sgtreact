@@ -22,8 +22,8 @@ export function addStudent(student) {
     };
 };
 
-export function editStudent(id) {
-    const request = axios.patch();
+export function editStudent(student) {
+    const request = axios.patch(`${BASE_URL}/${student.id}`, student.student);
 
     return{
         type: actions.EDIT_STUDENT,
@@ -37,5 +37,29 @@ export function deleteStudent(id) {
     return{
         type: actions.DELETE_STUDENT,
         payload: request
+    };
+};
+
+export function editToggleTrue(student) {
+    const response = {
+        student,
+        boolean: true
+    }
+
+    return {
+        type: actions.EDIT_TOGGLE_TRUE,
+        payload: response
+    };
+};
+
+export function editToggleFalse() {
+    const response = {
+        student: {},
+        boolean: false
+    }
+
+    return{
+        type: actions.EDIT_TOGGLE_FALSE,
+        payload: response
     };
 };
