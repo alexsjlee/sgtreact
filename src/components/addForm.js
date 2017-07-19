@@ -9,20 +9,6 @@ class AddForm extends Component {
         this.props.addStudent(value).then(reset).then(() => this.props.fetchAll());
     };
 
-    form(name, placeholder) {
-        return(
-            <div className='form-group'>
-                <Field
-                    className='form-control'
-                    name={name}
-                    component='input'
-                    type='text'
-                    placeholder={placeholder}
-                />
-            </div>
-        );
-    };
-
     renderField(field) {
         const { meta: {touched, error} } = field;
         const className = `form-group ${touched && error ? 'has-danger' : ''}`;
@@ -50,9 +36,6 @@ class AddForm extends Component {
                 <h4>Add A New Student</h4>
                 <div>
                     <form >
-                        {/* {this.form('name', 'Student Name')}
-                        {this.form('course', 'Student Course')}
-                        {this.form('grade', 'Student Grade')} */}
                         <Field
                             name='name'
                             placeholder='Student Name'
