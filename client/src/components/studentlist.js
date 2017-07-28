@@ -33,6 +33,7 @@ class StudentList extends Component {
                 <input
                     type='text'
                     className='form-control form-control-danger'
+                    style={{maxWidth: field.maxWidth + 'px'}}
                     {...field.input}
                 />
                 <div className='form-control-feedback'>
@@ -54,14 +55,12 @@ class StudentList extends Component {
         return this.props.list.students.map((student) => {
             return(
                 <tr key={student._id}>
-                    {this.props.edit.boolean && student._id === this.props.edit.student.student._id ? <Field name='name' current={this.props.edit.student.student.name} component={this.renderField}/> : <td>{student.name}</td> }
-                    {this.props.edit.boolean && student._id === this.props.edit.student.student._id ? <Field name='course' current={this.props.edit.student.student.course} component={this.renderField} /> : <td>{student.course}</td>}
-                    {this.props.edit.boolean && student._id === this.props.edit.student.student._id ? <Field name='grade' current={this.props.edit.student.student.grade} component={this.renderField} /> : <td>{student.grade}</td>}
+                    {this.props.edit.boolean && student._id === this.props.edit.student.student._id ? <Field name='name' current={this.props.edit.student.student.name} maxWidth='150' component={this.renderField}/> : <td>{student.name}</td> }
+                    {this.props.edit.boolean && student._id === this.props.edit.student.student._id ? <Field name='course' current={this.props.edit.student.student.course} maxWidth='150' component={this.renderField} /> : <td>{student.course}</td>}
+                    {this.props.edit.boolean && student._id === this.props.edit.student.student._id ? <Field name='grade' current={this.props.edit.student.student.grade} maxWidth='80' component={this.renderField} /> : <td>{student.grade}</td>}
                     <td>
                         {this.props.edit.boolean && student._id === this.props.edit.student.student._id ? <button className='btn btn-outline-success' onClick={handleSubmit((student) => {this.editStudent({id: this.props.edit.student.student._id, student})})}><FaFloppyO /></button> : <button className='btn btn-outline-warning' onClick={() => {this.editToggleTrue({student})}}><FaPencil /></button>}
-                    </td> 
-                     <td>
-                         {this.props.edit.boolean && student._id === this.props.edit.student.student._id? <button className='btn btn-outline-warning' onClick={() => this.props.editToggleFalse()}><MdClose /></button> : <button className='btn btn-outline-danger' onClick={() => {this.deleteStudent(student._id)}}><FaTrash /></button>} 
+                        {this.props.edit.boolean && student._id === this.props.edit.student.student._id? <button className='btn btn-outline-warning' onClick={() => this.props.editToggleFalse()}><MdClose /></button> : <button className='btn btn-outline-danger' onClick={() => {this.deleteStudent(student._id)}}><FaTrash /></button>} 
                     </td> 
                 </tr>
             )

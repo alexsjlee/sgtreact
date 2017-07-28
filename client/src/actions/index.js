@@ -2,7 +2,7 @@ import axios from 'axios';
 
 import actions from './types';
 
-const BASE_URL = 'http://localhost:3090/students';
+const BASE_URL = 'http://sgtdb.herokuapp.com/students';
 
 export function fetchAll() {
     const request = axios.get(BASE_URL);
