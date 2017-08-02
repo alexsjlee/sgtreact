@@ -37,6 +37,7 @@ class AddForm extends Component {
                 <div>
                     <form >
                         <Field
+                            
                             name='name'
                             placeholder='Student Name'
                             component={this.renderField}
@@ -67,10 +68,10 @@ function validate(values) {
         errors.name = 'Please enter a student name.'
     };
     if(!values.course) {
-        errors.course = 'Please enter the student\' course.'
+        errors.course = 'Please enter the student\'s course.'
     };
-    if(!values.grade) {
-        errors.grade = 'Please enter a grade for the student.'
+    if(!values.grade || isNaN(values.grade) === true) {
+        errors.grade = 'Please enter a valid numerical grade for the student.'
     }
 
     return errors;
